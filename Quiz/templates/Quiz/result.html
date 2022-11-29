@@ -1,0 +1,52 @@
+{% extends 'Quiz/dependencies.html' %}
+
+{% block content %}
+
+<div class="container ">
+        
+    <div class="card-columns" style="padding: 10px; margin: 20px;">
+        <div class="card" align="centre " style="width: 32rem; border:5px black solid">
+            <img class="card-img-top" src="/Quiz/templates/Quiz/static/images/cats-dogs-pets-thumb.jpg" alt="Cats and dogs">
+            <div class="card-body">
+                <h3 class="card-title">Wynki: {{score}}</h3>
+                {% if score <= 11 %}
+                <h3>Słabo, chyba nie masz depy</h3>
+                {% elif score <= 26 %}
+                <h3>Nieźle, łagodna depa</h3>
+                {% elif score <= 49 %}
+                <h3>Bardzo dobrze, średnia depa</h3>
+                {% elif score <= 63 %}
+                <h3>Zajebiście, mocna depa</h3>
+                {% endif %}
+
+                 <table class="table table-striped">
+  <tr>
+    <th>ILOŚĆ PUNKTÓW</th>
+    <th>REZULTAT</th>
+  </tr>
+  <tr>
+    <td>0-11</td>
+      <td>brak depresji</td>
+
+  </tr>
+                     <tr>
+    <td>12-26</td>
+      <td>epizod depresyjny o łagodnym nasileniu</td>
+  </tr>
+                       <tr>
+    <td>27-49</td>
+      <td>epizod depresyjny o umiarkowanym nasileniu</td>
+  </tr>
+  <tr>
+    <td>50-63</td>
+    <td>epizod depresyjny o głębokim nasileniu</td>
+  </tr>
+</table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+
+{% extends 'Quiz/dependencies.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container ">
+    <div class="headline_cont">
+           <img class="title_img" src="/Quiz/templates/Quiz/static/images/sad_cat_and_dog.jpg" alt="Sad cat and dog">
+        <h2>skala depresji becka</h2>
+    </div>
+    <div class="subheadline_cont">
+        <h5>Prosimy w każdym punkcie o zakreślenie tylko jednej odpowiedzi, która najlepiej
+oddaje Pani/Pana uczucia podczas ostatnich 7 dni (a nie tylko w dniu dzisiejszym).</h5>
+    </div>
+
+ <form method='post' action=''>
+    {% csrf_token %}
+    {% for q  in questions%}
+    <div class="form-group">
+      <label for="question">{{q.question}}</label>
+    </div>
+    <div class="form-check">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="option1">
+            <label class="form-check-label" for="gridRadios1">
+                {{q.op1}}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="option2">
+            <label class="form-check-label" for="gridRadios2">
+                {{q.op2}}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios3" value="option3">
+            <label class="form-check-label" for="gridRadios3">
+                {{q.op3}}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios4" value="option4">
+            <label class="form-check-label" for="gridRadios4">
+                {{q.op4}}
+            </label>
+        </div>
+
+        <br>
+    </div>    
+    {% endfor %}
+    <input id='timer' type='hidden' name="timer" value="">
+    <br>
+    <button type="submit" class="btn btn-primary">Pokaż wynik</button>
+  </form>
+    {% block script %}
+    {% endblock script %}
+
+</div>
+{% endblock %}
+ 
